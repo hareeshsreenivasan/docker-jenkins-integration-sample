@@ -3,13 +3,13 @@ pipeline{
     stages {
         stage ('Build'){
             steps{
-                bat 'docker build -t hareesh52/docker-jenkins-integration-sample:""$BUILD_ID"" .'
+                bat 'docker build -t hareesh52/docker-jenkins-integration-sample:version1.0 .'
             }
         }
         stage ('Publish'){
             steps{
                 withDockerRegistry([credentialsId:"docker-hub", url:""]){
-                    bat 'docker push hareesh52/docker-jenkins-integration-sample:""$BUILD_ID""'
+                    bat 'docker push hareesh52/docker-jenkins-integration-sample:version1.0'
                     }
                 }
             }
