@@ -3,7 +3,6 @@ pipeline{
     stages {
         stage ('Build'){
             steps{
-                bat 'printenv'
                 bat 'docker build -t hareesh52/docker-jenkins-integration-sample:""$BUILD_ID"" .'
             }
         }
